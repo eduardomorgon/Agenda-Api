@@ -7,8 +7,6 @@ package br.com.estudo.agenda.api.factory;
 
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
@@ -21,14 +19,6 @@ import javax.persistence.Persistence;
  */
 @ApplicationScoped
 public class JpaFactory {
-    
-//    public static void main(String[] args) {
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("agendaPU");
-//        EntityManager em = emf.createEntityManager();
-//        
-//        em.close();
-//        emf.close();
-//    }
     
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("agendaPU");
     
