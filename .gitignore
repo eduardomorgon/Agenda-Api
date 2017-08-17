@@ -1,1 +1,4 @@
 /target/
+/db.properties
+/db.log
+/db.script
