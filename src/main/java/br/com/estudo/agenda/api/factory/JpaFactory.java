@@ -29,7 +29,6 @@ public class JpaFactory {
     }
     
     public void closeEm(@Disposes EntityManager em) {
-        System.out.println("em");
         if(em.isOpen()) {
             em.close();
         }
@@ -38,7 +37,6 @@ public class JpaFactory {
     @PreDestroy
     public void closeEmf() {
         if(emf.isOpen()) {
-            System.out.println("emf");
             emf.close();
         }
     }
