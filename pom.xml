@@ -48,7 +48,7 @@
             <artifactId>jersey-weld2-se</artifactId>
             <version>${jersey.version}</version>
         </dependency>
-         <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.ext.cdi/jersey-cdi1x -->
+        <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.ext.cdi/jersey-cdi1x -->
         <dependency>
             <groupId>org.glassfish.jersey.ext.cdi</groupId>
             <artifactId>jersey-cdi1x</artifactId>
@@ -67,12 +67,20 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.2.10.Final</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.ext/jersey-bean-validation -->
+        <dependency>
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-bean-validation</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-core</artifactId>
