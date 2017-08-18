@@ -52,7 +52,7 @@ public class ContatoResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response salvar(Contato contato) {
         dao.save(contato);
-        URI uri = URI.create("/contatos/"+contato.getId());
+        URI uri = URI.create("contatos/"+contato.getId());
         return Response.created(uri).build();
     }
     
