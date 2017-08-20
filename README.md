@@ -1,8 +1,8 @@
 # Agenda-Api
-Api Agenda com jersey/cdi/jpa/hibernate e etc.
+Api Agenda com jersey/cdi/jpa/hibernate/bean validation e etc.
 
 
-Projeto para estudo baseado em JAX-RS com CDI, JPA usando a implementação do Hibernate.
+Projeto para estudo baseado em JAX-RS com CDI, JPA usando a implementação do Hibernate e Bean Validation.
 
 Já tem uma application server embutido no projeto. (Foi configurado o GrizzlyHttpServer).
 
