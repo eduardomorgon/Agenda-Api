@@ -5,6 +5,7 @@
  */
 package br.com.estudo.agenda.api.resource;
 
+import br.com.estudo.agenda.api.App;
 import br.com.estudo.agenda.api.model.Contato;
 import java.util.List;
 import javax.ws.rs.client.Client;
@@ -16,9 +17,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.filter.LoggingFilter;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 
@@ -32,7 +35,7 @@ public class ContatoResourceTest {
     private Client client;
     private WebTarget target;
     private static String urlTesteCriado;
-    private static final Contato CONTATO = new Contato("Jose", "1112341234");
+    private static final Contato CONTATO = new Contato("Jose", "(11)1234-1234");
 
     public ContatoResourceTest() {
     }
@@ -75,7 +78,7 @@ public class ContatoResourceTest {
 
         Contato contatoParaEditar = client.target(urlTesteCriado).request().get(Contato.class);
         contatoParaEditar.setNome("Antonio");
-        contatoParaEditar.setTelefone("111");
+        contatoParaEditar.setTelefone("(11)99999-1234");
 
         Entity<Contato> entity = Entity.entity(contatoParaEditar, MediaType.APPLICATION_JSON);
         Response response = target.request().put(entity);
@@ -95,12 +98,20 @@ public class ContatoResourceTest {
         List<Contato> contatos = response.readEntity(new GenericType<List<Contato>>() {});
         assertTrue(contatos.size() > 0);
     }
+    
+    @Test
+    public void test5SalvarSemSeguirRegrasDeValidacao() {
+        Contato contato = new Contato("", "1111111111");
+        Entity<Contato> entity = Entity.entity(contato, MediaType.APPLICATION_JSON);
+        Response response = target.request().post(entity);
+        assertEquals(402, response.getStatus());
+    }
 
     /**
      * Test of deletarPor method, of class ContatoResource.
      */
     @Test
-    public void test5DeletarPor() {
+    public void test6DeletarPor() {
 
         WebTarget alvoParaExcluir = client.target(urlTesteCriado);
         Response response = alvoParaExcluir.request().delete();

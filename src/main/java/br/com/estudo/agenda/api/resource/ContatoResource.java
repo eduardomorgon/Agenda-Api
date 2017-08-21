@@ -51,7 +51,7 @@ public class ContatoResource {
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response salvar(Contato contato) {
+    public Response salvar(@Valid Contato contato) {
         dao.save(contato);
         URI uri = URI.create("contatos/"+contato.getId());
         return Response.created(uri).build();
