@@ -5,7 +5,6 @@
  */
 package br.com.estudo.agenda.api.resource;
 
-import br.com.estudo.agenda.api.App;
 import br.com.estudo.agenda.api.model.Contato;
 import java.util.List;
 import javax.ws.rs.client.Client;
@@ -17,11 +16,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.filter.LoggingFilter;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 
@@ -117,5 +114,5 @@ public class ContatoResourceTest {
         Response response = alvoParaExcluir.request().delete();
         assertEquals(200, response.getStatus());
     }
-
+    
 }
