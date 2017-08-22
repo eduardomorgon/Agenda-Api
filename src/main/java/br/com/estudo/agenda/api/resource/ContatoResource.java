@@ -59,7 +59,7 @@ public class ContatoResource {
     
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response editar(Contato contato) {
+    public Response editar(@Valid Contato contato) {
         dao.edit(contato);
         return Response.ok().build();
     }

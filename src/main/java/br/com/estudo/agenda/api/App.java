@@ -6,6 +6,7 @@
 package br.com.estudo.agenda.api;
 
 import br.com.estudo.agenda.api.provider.BeanValidationExceptionMapper;
+import br.com.estudo.agenda.filter.CORSFilter;
 import java.io.IOException;
 import java.net.URI;
 import java.util.logging.Level;
@@ -56,6 +57,7 @@ public class App {
         resourceConfig.packages("br.com.estudo.agenda.api.resource");
         resourceConfig.register(JacksonFeature.class);
         resourceConfig.register(new BeanValidationExceptionMapper());
+        resourceConfig.register(new CORSFilter());
         resourceConfig.property(org.glassfish.jersey.server.ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
         return resourceConfig;
     }
